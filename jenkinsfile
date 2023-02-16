@@ -9,7 +9,6 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker logout'
                 withDockerRegistry([credentialsId: "docker_creds", url: ""]){
                 sh 'docker push suhas826/jenkinsdemo:"${BUILD_ID}"'
                 }
