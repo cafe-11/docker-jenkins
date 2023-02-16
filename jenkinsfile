@@ -4,14 +4,14 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'printenv'
-                sh 'docker build -t dockerpython/jenkinsdemo:"${BUILD_ID}" .'
+                sh 'docker build -t suhas826/jenkinsdemo:"${BUILD_ID}" .'
             }
         }
         stage('Push') {
             steps {
                 sh 'docker logout'
                 withDockerRegistry([credentialsId: "docker_creds", url: ""]){
-                sh 'docker push dockerpython/jenkinsdemo:"${BUILD_ID}"'
+                sh 'docker push suhas826/jenkinsdemo:"${BUILD_ID}"'
                 }
             }
         }
