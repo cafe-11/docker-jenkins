@@ -7,7 +7,7 @@ pipeline {
                 sh 'docker build -t dockerpython/jenkinsdemo:"${BUILD_ID}" .'
             }
         }
-        stage('Push) {
+        stage('Push') {
             steps {
                 withDockerRegistry([credentialsId: "docker_creds", url: ""]){
                 sh 'docker push dockerpython/jenkinsdemo:"${BUILD_ID}"'
